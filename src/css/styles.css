@@ -1,0 +1,79 @@
+/* Theme 1 */
+body {
+  background-color: hsl(222, 26%, 31%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 50%;
+  width: 25%;
+}
+
+.theme-numbers {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.9rem;
+  list-style: none;
+  font-size: 0.9rem;
+  margin-right: 0.4rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-title {
+  text-transform: lowercase;
+}
+
+.theme-input {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.theme-text {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  align-self: flex-end;
+}
+
+input {
+  height: 1.2rem;
+  width: 1.2rem;
+  appearance: none;
+  background-color: #000;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+input:hover {
+  cursor: pointer;
+}
+
+.tri-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(223, 31%, 20%);
+  /* padding: 0.4rem; */
+  border-radius: 5rem;
+}
+
+.btn {
+  background-color: rgb(191, 24, 24);
+  border-radius: 100%;
+}
+
+#toggle-one {
+  opacity: 1;
+}

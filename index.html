@@ -13,6 +13,12 @@
       sizes="32x32"
       href="./images/calculate_FILL0_wght400_GRAD0_opsz48.svg"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./src/css/general.css" />
     <link rel="stylesheet" href="./src/css/styles.css" />
     <link rel="stylesheet" href="./src/css/queries.css" />
@@ -20,6 +26,23 @@
     <title>Calculator app</title>
   </head>
   <body>
-    <p>test</p>
+    <div class="container">
+      <ul class="theme-numbers">
+        <li class="theme-number">1</li>
+        <li class="theme-number">2</li>
+        <li class="theme-number">3</li>
+      </ul>
+      <header class="header">
+        <h1 class="app-title">Calc</h1>
+        <div class="theme-input">
+          <p class="theme-text">Theme</p>
+          <div class="tri-toggle">
+            <input class="btn" type="radio" name="toggle" id="toggle-one" />
+            <input class="btn" type="radio" name="toggle" id="toggle-two" />
+            <input class="btn" type="radio" name="toggle" id="toggle-three" />
+          </div>
+        </div>
+      </header>
+    </div>
   </body>
 </html>
