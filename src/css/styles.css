@@ -1,12 +1,13 @@
 /* Theme 1 */
 body {
-  background-color: hsl(222, 26%, 31%);
+  background-color: #4e5974;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
   color: #fff;
+  transition: all 0.3s;
 }
 
 .container {
@@ -165,4 +166,45 @@ input:hover {
 .btn:hover,
 .equalsBtn:hover {
   background-color: #de796d;
+}
+
+/* Theme 2 */
+.body-theme-two {
+  background-color: #41b3a3;
+}
+
+.calc-display-theme-two {
+  background-color: #85cdca;
+}
+
+.calc-input-theme-two {
+  background-color: #e8a87c;
+}
+
+.calc-numbers-theme-two {
+  color: #0d2421;
+}
+
+.toggle-switches-theme-two,
+.equals-btn-theme-two {
+  background-color: #e27d60;
+}
+.equals-btn-theme-two {
+  box-shadow: 0 0.3rem #b5644d;
+}
+
+.toggle-switches-theme-two:hover,
+.equals-btn-theme-two:hover {
+  background-color: #e89780;
+}
+
+.reset-btn-theme-two,
+.delete-btn-theme-two {
+  background-color: #c38d9e;
+  box-shadow: 0 0.3rem #9c717e;
+}
+
+.reset-btn-theme-two:hover,
+.delete-btn-theme-two:hover {
+  background-color: #d5afbb;
 }
