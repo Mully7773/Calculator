@@ -147,7 +147,7 @@ input:hover {
   background-color: #4e5974;
   color: #fff;
 }
-/* input??? */
+
 .tri-toggle-theme-one {
   background-color: hsl(223, 31%, 20%);
 }
@@ -162,6 +162,10 @@ input:hover {
 
 .calc-input-container-theme-one {
   background-color: hsl(223, 31%, 20%);
+}
+
+.calc-numbers-theme-one {
+  color: #fff;
 }
 
 .calcBtn-theme-one {
@@ -201,11 +205,19 @@ input:hover {
   background-color: #41b3a3;
 }
 
+.tri-toggle-theme-two {
+  background-color: #e8a87c;
+}
+
+.btn-theme-two {
+  background-color: #9c717e;
+}
+
 .calc-display-theme-two {
   background-color: #85cdca;
 }
 
-.calc-input-theme-two {
+.calc-input-container-theme-two {
   background-color: #e8a87c;
 }
 
@@ -213,27 +225,39 @@ input:hover {
   color: #0d2421;
 }
 
+.calcBtn-theme-two {
+  background-color: hsl(30, 25%, 89%);
+  color: hsl(221, 14%, 31%);
+  box-shadow: 0 0.3rem hsl(28, 16%, 65%);
+}
+
+.calcBtn-theme-two:hover {
+  background-color: #fff;
+}
+
 .toggle-switches-theme-two,
-.equals-btn-theme-two {
+.equalsBtn-theme-two {
   background-color: #e27d60;
 }
-.equals-btn-theme-two {
+.equalsBtn-theme-two {
   box-shadow: 0 0.3rem #b5644d;
+  color: #fff;
 }
 
 .toggle-switches-theme-two:hover,
-.equals-btn-theme-two:hover {
+.equalsBtn-theme-two:hover {
   background-color: #e89780;
 }
 
-.reset-btn-theme-two,
-.delete-btn-theme-two {
+.resetBtn-theme-two,
+.delBtn-theme-two {
+  color: #fff;
   background-color: #c38d9e;
   box-shadow: 0 0.3rem #9c717e;
 }
 
-.reset-btn-theme-two:hover,
-.delete-btn-theme-two:hover {
+.resetBtn-theme-two:hover,
+.delBtn-theme-two:hover {
   background-color: #d5afbb;
 }
 
@@ -244,24 +268,32 @@ input:hover {
 }
 
 .tri-toggle-theme-three {
-  background-color: hsl(268, 71%, 12%);
+  background-color: hsl(290, 70%, 36%);
+}
+
+.btn-theme-three {
+  background-color: hsl(52, 100%, 62%);
 }
 
 .calc-display-theme-three {
   background-color: hsl(268, 71%, 12%);
 }
 
-.calc-input-theme-three {
+.calc-input-container-theme-three {
   background-color: hsl(268, 71%, 12%);
 }
 
-.calc-button-theme-three {
+.calc-numbers-theme-three {
+  color: hsl(52, 100%, 62%);
+}
+
+.calcBtn-theme-three {
   background-color: hsl(268, 47%, 21%);
   box-shadow: 0 0.3rem hsl(290, 70%, 36%);
   color: hsl(52, 100%, 62%);
 }
 
-.calc-button-theme-three:hover {
+.calcBtn-theme-three:hover {
   background-color: hsl(290, 70%, 36%);
 }
 
@@ -270,27 +302,27 @@ input:hover {
 }
 
 .toggle-switches-theme-three,
-.equals-btn-theme-three {
+.equalsBtn-theme-three {
   background-color: hsl(176, 100%, 44%);
   color: hsl(198, 20%, 13%);
 }
-.equals-btn-theme-three {
+.equalsBtn-theme-three {
   box-shadow: 0 0.3rem hsl(177, 92%, 70%);
 }
 
 .toggle-switches-theme-three:hover,
-.equals-btn-theme-three:hover {
+.equalsBtn-theme-three:hover {
   background-color: hsl(177, 92%, 70%);
 }
 
-.reset-btn-theme-three,
-.delete-btn-theme-three {
+.resetBtn-theme-three,
+.delBtn-theme-three {
   background-color: hsl(281, 89%, 26%);
   box-shadow: 0 0.3rem hsl(285, 91%, 52%);
   color: hsl(0, 0%, 100%);
 }
 
-.reset-btn-theme-three:hover,
-.delete-btn-theme-three:hover {
+.resetBtn-theme-three:hover,
+.delBtn-theme-three:hover {
   background-color: hsl(285, 91%, 52%);
 }

@@ -16,33 +16,141 @@ class ToggleThemeView {
     arr.forEach((el, index) => {
       el.addEventListener('click', () => {
         el.style.opacity = '1';
+        if (el.dataset.id === 'theme1') {
+          this._body.classList.remove('body-theme-two');
+          this._body.classList.remove('body-theme-three');
+          this._body.classList.add('body-theme-one');
+
+          this._triToggleEl.classList.remove('tri-toggle-theme-two');
+          this._triToggleEl.classList.remove('tri-toggle-theme-three');
+          this._triToggleEl.classList.add('tri-toggle-theme-one');
+
+          this._toggleSwitches.forEach(el => {
+            el.classList.remove('btn-theme-two');
+            el.classList.remove('btn-theme-three');
+            el.classList.add('btn-theme-one');
+          });
+
+          this._calcDisplay.classList.remove('calc-display-theme-two');
+          this._calcDisplay.classList.remove('calc-display-theme-three');
+          this._calcDisplay.classList.add('calc-display-theme-one');
+
+          this._calcInput.classList.remove('calc-input-container-theme-two');
+          this._calcInput.classList.remove('calc-input-container-theme-three');
+          this._calcInput.classList.add('calc-input-container-theme-one');
+
+          this._calcNumbers.classList.remove('calc-numbers-theme-two');
+          this._calcNumbers.classList.remove('calc-numbers-theme-three');
+          this._calcNumbers.classList.add('calc-numbers-theme-one');
+
+          this._calcBtns.forEach(el => {
+            el.classList.remove('calcBtn-theme-two');
+            el.classList.remove('calcBtn-theme-three');
+            el.classList.add('calcBtn-theme-one');
+          });
+
+          this._resetBtn.classList.remove('resetBtn-theme-two');
+          this._resetBtn.classList.remove('resetBtn-theme-three');
+          this._resetBtn.classList.add('resetBtn-theme-one');
+
+          this._delBtn.classList.remove('delBtn-theme-two');
+          this._delBtn.classList.remove('delBtn-theme-three');
+          this._delBtn.classList.add('delBtn-theme-one');
+
+          this._equalsBtn.classList.remove('equalsBtn-theme-two');
+          this._equalsBtn.classList.remove('equalsBtn-theme-three');
+          this._equalsBtn.classList.add('equalsBtn-theme-one');
+        }
         if (el.dataset.id === 'theme2') {
-          this._body.classList.toggle('body-theme-two');
-          this._calcDisplay.classList.toggle('calc-display-theme-two');
-          this._calcInput.classList.toggle('calc-input-theme-two');
-          this._calcNumbers.classList.toggle('calc-numbers-theme-two');
-          // this._toggleSwitch.classList.toggle('toggle-switches-theme-two');
-          this._equalsBtn.classList.toggle('equals-btn-theme-two');
-          this._resetBtn.classList.toggle('reset-btn-theme-two');
-          this._delBtn.classList.toggle('delete-btn-theme-two');
+          this._body.classList.remove('body-theme-one');
+          this._body.classList.remove('body-theme-three');
+          this._body.classList.add('body-theme-two');
+
+          this._triToggleEl.classList.remove('tri-toggle-theme-one');
+          this._triToggleEl.classList.remove('tri-toggle-theme-three');
+          this._triToggleEl.classList.add('tri-toggle-theme-two');
+
+          this._toggleSwitches.forEach(el => {
+            el.classList.remove('btn-theme-one');
+            el.classList.remove('btn-theme-three');
+            el.classList.add('btn-theme-two');
+          });
+
+          this._calcDisplay.classList.remove('calc-display-theme-one');
+          this._calcDisplay.classList.remove('calc-display-theme-three');
+          this._calcDisplay.classList.add('calc-display-theme-two');
+
+          this._calcNumbers.classList.remove('calc-numbers-theme-one');
+          this._calcNumbers.classList.remove('calc-numbers-theme-three');
+          this._calcNumbers.classList.add('calc-numbers-theme-two');
+
+          this._calcInput.classList.remove('calc-input-container-theme-one');
+          this._calcInput.classList.remove('calc-input-container-theme-three');
+          this._calcInput.classList.add('calc-input-container-theme-two');
+
+          this._calcBtns.forEach(el => {
+            el.classList.remove('calcBtn-theme-one');
+            el.classList.remove('calcBtn-theme-three');
+            el.classList.add('calcBtn-theme-two');
+          });
+
+          this._resetBtn.classList.remove('resetBtn-theme-one');
+          this._resetBtn.classList.remove('resetBtn-theme-three');
+          this._resetBtn.classList.add('resetBtn-theme-two');
+
+          this._delBtn.classList.remove('delBtn-theme-one');
+          this._delBtn.classList.remove('delBtn-theme-three');
+          this._delBtn.classList.add('delBtn-theme-two');
+
+          this._equalsBtn.classList.remove('equalsBtn-theme-one');
+          this._equalsBtn.classList.remove('equalsBtn-theme-three');
+          this._equalsBtn.classList.add('equalsBtn-theme-two');
         }
 
         if (el.dataset.id === 'theme3') {
-          this._body.classList.toggle('body-theme-three');
-          this._triToggleEl.classList.toggle('tri-toggle-theme-three');
-          this._calcDisplay.classList.toggle('calc-display-theme-three');
-          this._calcInput.classList.toggle('calc-input-theme-three');
-          this._calcBtns.forEach(btn => {
-            btn.classList.toggle('calc-button-theme-three');
+          this._body.classList.remove('body-theme-one');
+          this._body.classList.remove('body-theme-two');
+          this._body.classList.add('body-theme-three');
+
+          this._triToggleEl.classList.remove('tri-toggle-theme-one');
+          this._triToggleEl.classList.remove('tri-toggle-theme-two');
+          this._triToggleEl.classList.add('tri-toggle-theme-three');
+
+          this._toggleSwitches.forEach(el => {
+            el.classList.remove('btn-theme-one');
+            el.classList.remove('btn-theme-two');
+            el.classList.add('btn-theme-three');
           });
-          this._calcNumbers.classList.toggle('calc-numbers-theme-three');
-          // this._toggleSwitch.classList.add('toggle-switches-theme-three');
-          // this._toggleSwitch.forEach(btn => {
-          //   btn.classList.add('toggle-switches-theme-three');
-          // });
-          this._equalsBtn.classList.toggle('equals-btn-theme-three');
-          this._resetBtn.classList.toggle('reset-btn-theme-three');
-          this._delBtn.classList.toggle('delete-btn-theme-three');
+
+          this._calcDisplay.classList.remove('calc-display-theme-one');
+          this._calcDisplay.classList.remove('calc-display-theme-two');
+          this._calcDisplay.classList.add('calc-display-theme-three');
+
+          this._calcNumbers.classList.remove('calc-numbers-theme-one');
+          this._calcNumbers.classList.remove('calc-numbers-theme-two');
+          this._calcNumbers.classList.add('calc-numbers-theme-three');
+
+          this._calcInput.classList.remove('calc-input-container-theme-one');
+          this._calcInput.classList.remove('calc-input-container-theme-two');
+          this._calcInput.classList.add('calc-input-container-theme-three');
+
+          this._calcBtns.forEach(el => {
+            el.classList.remove('calcBtn-theme-one');
+            el.classList.remove('calcBtn-theme-two');
+            el.classList.add('calcBtn-theme-three');
+          });
+
+          this._resetBtn.classList.remove('resetBtn-theme-one');
+          this._resetBtn.classList.remove('resetBtn-theme-two');
+          this._resetBtn.classList.add('resetBtn-theme-three');
+
+          this._delBtn.classList.remove('delBtn-theme-one');
+          this._delBtn.classList.remove('delBtn-theme-two');
+          this._delBtn.classList.add('delBtn-theme-three');
+
+          this._equalsBtn.classList.remove('equalsBtn-theme-one');
+          this._equalsBtn.classList.remove('equalsBtn-theme-two');
+          this._equalsBtn.classList.add('equalsBtn-theme-three');
         }
         arr
           .filter(function (item) {
