@@ -72,11 +72,6 @@ class CalcDisplayView {
         console.log(calcBtnValue);
         this._calcDisplayValue.insertAdjacentHTML('beforeend', calcBtnValue);
         this._arr.textValue.push(this._calcDisplayValue);
-        const displayText = this._arr.textValue[0].outerText;
-        const displayNumber = +displayText;
-        console.log(displayNumber);
-        this._arr.numbers.push(displayNumber);
-        console.log(this._arr);
       });
     });
 
@@ -86,7 +81,13 @@ class CalcDisplayView {
         const operatorBtnValue = btn.dataset.id.trim();
         console.log(operatorBtnValue);
         this._arr.operators.push(operatorBtnValue);
+        const displayText = this._arr.textValue[0].outerText;
+        const displayNumber = +displayText;
+        console.log(displayNumber);
+        this._arr.numbers.push(displayNumber);
         console.log(this._arr);
+        const space = '';
+        this._calcDisplayValue.innerHTML = '&nbsp';
       });
     });
 
