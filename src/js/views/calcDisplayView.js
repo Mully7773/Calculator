@@ -86,8 +86,15 @@ class CalcDisplayView {
         console.log(displayNumber);
         this._arr.numbers.push(displayNumber);
         console.log(this._arr);
-        const space = '';
         this._calcDisplayValue.innerHTML = '&nbsp';
+        if (operatorBtnValue === '=') {
+          const solution = this.compute(
+            this._arr.operators[0],
+            this._arr.numbers[0],
+            this._arr.numbers[1]
+          );
+          this._calcDisplayValue.innerHTML = solution;
+        }
       });
     });
 
