@@ -147,6 +147,19 @@ class CalcDisplayView {
         //   this._state.rightOperand.pop();
         // }
 
+        if (
+          this._state.operand.length > 1 &&
+          this._state.operand[this._state.operand.length - 1] !== '='
+        ) {
+          const chainSolution = this.compute(
+            this._state.operand[this._state.operand.length - 1],
+            this._state.leftOperand[0],
+            this._state.rightOperand[this._state.rightOperand.length - 1]
+          );
+          this._calcDisplayValue.textContent = chainSolution;
+          this._state.leftOperand = [chainSolution];
+        }
+
         // this._arr.textValue = [];
         this._state.displayText = [];
         console.log(this._state);
