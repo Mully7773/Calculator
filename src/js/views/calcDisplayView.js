@@ -124,17 +124,22 @@ class CalcDisplayView {
     this._operatorBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         // if (!btn) return;
-        // this._num = '';
-        // console.log(this._num);
-        // this._calcDisplayValue.innerHTML = this._arr.number;
-        // this._calcDisplayValue.innerHTML = this._num;
-        // If numbers array is greater than 1 run compute and return answer in display
         const operatorBtnValue = btn.dataset.id.trim();
         console.log(operatorBtnValue);
 
-        // this._arr.operators.push(operatorBtnValue);
+        if (operatorBtnValue === '=') {
+          this._state.equals.push(operatorBtnValue);
+        }
+
         this._state.lastClicked.push(operatorBtnValue);
         this._state.operand.push(operatorBtnValue);
+
+        // Remove '=' from operand array
+        // const equals = this._state.operand.indexOf('=');
+        // if (equals > -1) {
+        //   this._state.operand.splice(equals, 1);
+        // }
+        // this._state.operand = [operatorBtnValue];
 
         this._state.leftOperand.push(+this._state.displayText.join(''));
         if (this._state.leftOperand.length > 1) {
@@ -152,7 +157,12 @@ class CalcDisplayView {
           this._state.operand[this._state.operand.length - 1] !== '='
         ) {
           const chainSolution = this.compute(
-            this._state.operand[this._state.operand.length - 1],
+            // operatorBtnValue,
+            this._state.operand[this._state.operand.length - 2],
+            // this._state.lastClicked[this._state.lastClicked.length - 2] === '='
+            //   ? this._state.operand[this._state.operand.length - 3]
+            //   : this._state.operand[this._state.operand.length - 2],
+            // this._state.operand[0],
             this._state.leftOperand[0],
             this._state.rightOperand[this._state.rightOperand.length - 1]
           );
@@ -160,9 +170,8 @@ class CalcDisplayView {
           this._state.leftOperand = [chainSolution];
         }
 
-        // this._arr.textValue = [];
         this._state.displayText = [];
-        console.log(this._state);
+        console.table(this._state);
         // this._calcDisplayValue.textContent = this._state.equals.slice(-1);
 
         // !const displayText = this._arr.textValue[0].outerText;
@@ -190,19 +199,24 @@ class CalcDisplayView {
         // this._arr.numbers.push(solution);
         // this._arr.solutions.push(solution);
 
-        if (this._state.operand[this._state.operand.length - 1] === '=') {
+        // FIX EQUALS CONDITION
+
+        // if (this._state.operand[this._state.operand.length - 1] === '=') {
+        if (
+          this._state.lastClicked[this._state.lastClicked.length - 1] === '='
+        ) {
           const rightOperand = +this._state.displayText.join();
           console.log('rightOperand', rightOperand);
           const solution = this.compute(
-            this._state.operand[0],
+            // this._state.operand[0],
+            this._state.operand[this._state.operand.length - 2],
             this._state.leftOperand[0],
             // this._state.leftOperand[1]
             this._state.rightOperand[this._state.rightOperand.length - 1]
           );
           this._calcDisplayValue.textContent = solution;
           this._state.leftOperand = [solution];
-          this._state.equals.push(solution);
-          // this._state.leftOperand.push(solution);
+          this._state.solutions.push(solution);
           console.log(this._state);
         }
 
@@ -226,29 +240,6 @@ class CalcDisplayView {
         // }
       });
     });
-
-    // this._calcInputContainer.addEventListener('click', e => {
-
-    // const calcBtn = e.target.closest('.calcBtn');
-    // const operatorBtn = e.target.closest('.operator');
-
-    // if (!calcBtn) return;
-
-    // const calcBtnValue = calcBtn.textContent;
-    // this._arr.push(calcBtnValue);
-    // console.log(this._arr);
-    // const split = this._arr.toString();
-    // console.log(split);
-    // const fullString = split.replaceAll(',', '');
-    // const fullNum = +fullString;
-    // console.log(fullNum);
-    // if (calcBtnValue === '+') {
-    //   const equation = this.compute('+', fullNum);
-    //   console.log(equation);
-    // }
-    // const markup = `<h2 class='calc-numbers'>${calcBtnValue}</h2>`;
-    // this._calcDisplay.insertAdjacentHTML('beforeend', markup);
-    // });
   }
 }
 
