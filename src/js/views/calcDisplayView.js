@@ -95,6 +95,7 @@ class CalcDisplayView {
 
         // RETRIEVE NUMBER VIA CLICKS
         const calcBtnValue = btn.textContent;
+        this._state.lastClicked.push(calcBtnValue);
         //  console.log(this._arr);
         // this._arr.textValue.push(calcBtnValue);
         this._state.displayText.push(calcBtnValue);
@@ -103,6 +104,11 @@ class CalcDisplayView {
         const joined = this._state.displayText.join('');
         // this._calcDisplayValue.textContent = this._arr.textValue.join('');
         this._calcDisplayValue.textContent = joined;
+
+        // if (btn.dataset.id === '0') {
+        //   console.log('zero');
+        //   this._state.rightOperand.push(0);
+        // }
 
         console.log(this._state);
 
@@ -122,39 +128,70 @@ class CalcDisplayView {
     });
 
     this._operatorBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
+      // this._calcDisplayValue.textValue = this._state.displayText;
+      btn.addEventListener('click', e => {
         // if (!btn) return;
         const operatorBtnValue = btn.dataset.id.trim();
         console.log(operatorBtnValue);
 
-        if (operatorBtnValue === '=') {
-          this._state.equals.push(operatorBtnValue);
-        }
+        // if (operatorBtnValue === '=') {
+        //   this._state.equals.push(operatorBtnValue);
+        // }
 
         this._state.lastClicked.push(operatorBtnValue);
         this._state.operand.push(operatorBtnValue);
 
         // Remove '=' from operand array
-        // const equals = this._state.operand.indexOf('=');
-        // if (equals > -1) {
-        //   this._state.operand.splice(equals, 1);
-        // }
-        // this._state.operand = [operatorBtnValue];
+        const equals = this._state.operand.indexOf('=');
+        if (equals > -1) {
+          this._state.operand.splice(equals, 1);
+        }
 
-        this._state.leftOperand.push(+this._state.displayText.join(''));
+        // Loop?
+        // if (e.target.classList.contains('calcBtn')) {
+        //   console.log('operator');
+        // }
+        // if (operatorBtnValue === '=') {
+        //   console.log('true');
+        // }
+        const displayNumber = +this._state.displayText.join('');
+        // this._state.operand = [operatorBtnValue];
+        // this._state.leftOperand.push(+this._state.displayText.join(''));
+        // if (operatorBtnValue)
+
+        // Conditional necessary for multiplying by zero and preventing displayNumber from becoming 0 after consecutively selecting two operands (e.g. '=' => 'x') - if the preceding equation was 2 * 3, for example, selecting 'x' after '=' would result in the displayText being set to '0' because result was multiplied by zero and zero was saved from display = [] (reset)
+        if (
+          this._state.lastClicked[this._state.lastClicked.length - 2] !== '0' &&
+          displayNumber === 0
+        ) {
+          return;
+        }
+
+        this._state.leftOperand.push(displayNumber);
+        console.log(displayNumber);
+
         if (this._state.leftOperand.length > 1) {
           this._state.rightOperand.push(+this._state.displayText.join(''));
         }
         if (this._state.leftOperand.length > 1) {
           this._state.leftOperand.pop();
         }
+
+        // To prevent resetting display value to 0 after a four, six, eight...chain equation, clicking the equals key, then re-chaining that solution with new operators.
+        // if (
+        //   this._state.rightOperand[this._state.rightOperand.length - 1] === 0
+        // ) {
+        //   this._state.leftOperand.unshift(
+        //     this._state.solutions[this._state.solutions.length - 1]
+        //   );
+        // }
         // if (this._state.rightOperand.length > 1) {
         //   this._state.rightOperand.pop();
         // }
 
         if (
           this._state.operand.length > 1 &&
-          this._state.operand[this._state.operand.length - 1] !== '='
+          this._state.lastClicked[this._state.lastClicked.length - 1] !== '='
         ) {
           const chainSolution = this.compute(
             // operatorBtnValue,
@@ -170,7 +207,7 @@ class CalcDisplayView {
           this._state.leftOperand = [chainSolution];
         }
 
-        this._state.displayText = [];
+        // this._state.displayText = [];
         console.table(this._state);
         // this._calcDisplayValue.textContent = this._state.equals.slice(-1);
 
@@ -205,11 +242,12 @@ class CalcDisplayView {
         if (
           this._state.lastClicked[this._state.lastClicked.length - 1] === '='
         ) {
-          const rightOperand = +this._state.displayText.join();
+          const rightOperand = +this._state.displayText.join('');
           console.log('rightOperand', rightOperand);
           const solution = this.compute(
             // this._state.operand[0],
-            this._state.operand[this._state.operand.length - 2],
+            this._state.operand[this._state.operand.length - 1],
+            // this._state.operand[this._state.operand.length - 1],
             this._state.leftOperand[0],
             // this._state.leftOperand[1]
             this._state.rightOperand[this._state.rightOperand.length - 1]
@@ -217,9 +255,26 @@ class CalcDisplayView {
           this._calcDisplayValue.textContent = solution;
           this._state.leftOperand = [solution];
           this._state.solutions.push(solution);
+
           console.log(this._state);
         }
 
+        // THIS:
+
+        this._state.displayText = [];
+
+        // if (
+        //   this._state.rightOperand[this._state.rightOperand.length - 1] === 0
+        // ) {
+        //   this._state.rightOperand.pop();
+        // }
+        // if (this._state.leftOperand[this._state.leftOperand.length - 1] === 0) {
+        //   this._state.leftOperand.pop();
+        //   this._state.leftOperand.unshift(this._state.solutions[0]);
+        // }
+
+        // if (operatorBtnValue !== '=') {
+        // }
         // if (operatorBtnValue === '=') {
         //   // const solution = this.compute(
         //   //   this._arr.operators[0],
