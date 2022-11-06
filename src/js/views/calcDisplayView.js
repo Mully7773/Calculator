@@ -49,6 +49,9 @@ class CalcDisplayView {
     arr.push(...args);
     console.log(arr);
     const sum = arr.reduce((acc, cur) => {
+      if (acc === 0 || cur === 0) {
+        return `Can't divide by '0'`;
+      }
       return acc / cur;
     });
     return sum;
@@ -71,6 +74,7 @@ class CalcDisplayView {
 
   addComputationRender(state) {
     this._state = state;
+
     // this._calcDisplayValue.innerHTML = this._state.initial;
     // console.log(this._state);
     this._numBtns.forEach(btn => {
@@ -166,6 +170,18 @@ class CalcDisplayView {
         ) {
           return;
         }
+
+        // if (
+        //   this._state.lastClicked[this._state.lastClicked.length - 2] === '/' &&
+        //   this._state.lastClicked[this._state.lastClicked.length - 1] === '0'
+        // ) {
+        //   console.log('divided');
+        // }
+        // if (displayNumber ===)
+
+        // if (this._state.solutions === 'Infinity') {
+        //   console.log('inifine');
+        // }
 
         this._state.leftOperand.push(displayNumber);
         console.log(displayNumber);
