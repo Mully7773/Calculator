@@ -2,18 +2,11 @@ class CalcDisplayView {
   _state;
   _numBtns = document.querySelectorAll('.numBtn');
   _operatorBtns = document.querySelectorAll('.operator');
+  _resetBtn = document.querySelector('.resetBtn');
   _calcDisplay = document.querySelector('.calc-display');
   _calcDisplayValue = document.querySelector('.calc-numbers');
   _calcInputContainer = document.querySelector('.calc-input-container');
-  _num;
   _calcOn = true;
-  _arr = {
-    number: 0,
-    textValue: [],
-    numbers: [],
-    operators: [],
-    solutions: [],
-  };
 
   findSum(...args) {
     const arr = [];
@@ -51,7 +44,7 @@ class CalcDisplayView {
     console.log(arr);
     const sum = arr.reduce((acc, cur) => {
       if (acc === 0 || cur === 0) {
-        // This could be improved...prevent tabbed inputs, remove eventListeners, etc.
+        // This could be improved...prevent tabbed inputs, remove eventListeners, etc. Perhaps change key divs to buttons and toggle disable attribute
         this._state.calcOn = false;
         if (!this._state.calcOn) {
           this._numBtns.forEach(btn => {
@@ -339,6 +332,22 @@ class CalcDisplayView {
         //   this._arr.numbers = this._arr.numbers.slice(-1);
         //   console.log(this._arr);
         // }
+      });
+    });
+    this._resetBtn.addEventListener('click', () => {
+      console.log(this._state);
+      // Fresh state
+      this._state.displayText = [];
+      this._state.equals = [];
+      this._state.lastClicked = [];
+      this._state.leftOperand = [];
+      this._state.operand = [];
+      this._state.rightOperand = [];
+      this._state.solutions = [];
+      this._calcDisplayValue.innerHTML = `<h2 class="calc-numbers">&nbsp;</h2>`;
+      // Re-disable operand keys
+      this._operatorBtns.forEach(btn => {
+        btn.classList.add('disable-keys');
       });
     });
   }
