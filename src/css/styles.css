@@ -133,7 +133,8 @@ input:hover {
   grid-column: initial;
 }
 
-.equalsBtn {
+.equalsBtn,
+.equals-wrapper {
   grid-column: 3 / 5;
   width: 100%;
   font-size: 2rem;
@@ -331,3 +332,11 @@ input:hover {
 .disable-keys {
   pointer-events: none;
 }
+
+.cursor-wrapper {
+  cursor: pointer;
+}
+
+/* .operator {
+  pointer-events: none;
+} */

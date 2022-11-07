@@ -92,6 +92,10 @@ class CalcDisplayView {
     this._state = state;
     this._numBtns.forEach(btn => {
       btn.addEventListener('click', () => {
+        this._operatorBtns.forEach(btn => {
+          // Like pattern for dividing by zero, this is not a perfect solution - keyboard events are still accessible...however, it prevents preemptive operand selection bugs
+          btn.classList.remove('disable-keys');
+        });
         // this._calcDisplayValue.innerHTML = this._state.initial;
         // console.log(this._state);
         // RETRIEVE NUMBER VIA DISPLAY
@@ -149,6 +153,17 @@ class CalcDisplayView {
     this._operatorBtns.forEach(btn => {
       // this._calcDisplayValue.textValue = this._state.displayText;
       btn.addEventListener('click', e => {
+        // if (
+        //   this._state.lastClicked[0] === '+' ||
+        //   this._state.lastClicked[0] === '-' ||
+        //   this._state.lastClicked[0] === '*' ||
+        //   this._state.lastClicked[0] === '/' ||
+        //   this._state.lastClicked[0] === '='
+        // ) {
+        //   console.log('asdfadsf');
+        //   this._state.operand = [];
+        // }
+        console.log(this._state);
         // if (!btn) return;
         const operatorBtnValue = btn.dataset.id.trim();
         console.log(operatorBtnValue);
