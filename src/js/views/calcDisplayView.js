@@ -13,7 +13,8 @@ class CalcDisplayView {
     arr.push(...args);
     console.log(arr);
     const sum = arr.reduce((acc, cur) => {
-      return acc + cur;
+      const equation = acc + cur;
+      return Math.round(equation * 100) / 100;
     });
     return sum;
   }
@@ -23,7 +24,8 @@ class CalcDisplayView {
     arr.push(...args);
     console.log(arr);
     const sum = arr.reduce((acc, cur) => {
-      return acc - cur;
+      const equation = acc - cur;
+      return Math.round(equation * 100) / 100;
     });
     return sum;
   }
@@ -33,7 +35,8 @@ class CalcDisplayView {
     arr.push(...args);
     console.log(arr);
     const sum = arr.reduce((acc, cur) => {
-      return acc * cur;
+      const equation = acc * cur;
+      return Math.round(equation * 100) / 100;
     });
     return sum;
   }
@@ -61,7 +64,8 @@ class CalcDisplayView {
         this._calcDisplayValue.style.fontSize = '2.2rem';
         return `Can't divide by '0'. Resetting...`;
       }
-      return acc / cur;
+      const equation = acc / cur;
+      return Math.round(equation * 100) / 100;
     });
     return sum;
   }
@@ -172,6 +176,7 @@ class CalcDisplayView {
         //   console.log('true');
         // }
         const displayNumber = +this._state.displayText.join('');
+
         // this._state.operand = [operatorBtnValue];
         // this._state.leftOperand.push(+this._state.displayText.join(''));
         // if (operatorBtnValue)
