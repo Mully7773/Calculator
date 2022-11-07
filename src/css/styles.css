@@ -326,3 +326,8 @@ input:hover {
 .delBtn-theme-three:hover {
   background-color: hsl(285, 91%, 52%);
 }
+
+/* Divide by zero */
+.disable-keys {
+  pointer-events: none;
+}

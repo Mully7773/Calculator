@@ -6,6 +6,7 @@ class CalcDisplayView {
   _calcDisplayValue = document.querySelector('.calc-numbers');
   _calcInputContainer = document.querySelector('.calc-input-container');
   _num;
+  _calcOn = true;
   _arr = {
     number: 0,
     textValue: [],
@@ -50,7 +51,22 @@ class CalcDisplayView {
     console.log(arr);
     const sum = arr.reduce((acc, cur) => {
       if (acc === 0 || cur === 0) {
-        return `Can't divide by '0'`;
+        // This could be improved...prevent tabbed inputs, remove eventListeners, etc.
+        this._state.calcOn = false;
+        if (!this._state.calcOn) {
+          this._numBtns.forEach(btn => {
+            btn.classList.add('disable-keys');
+          });
+          this._operatorBtns.forEach(btn => {
+            btn.classList.add('disable-keys');
+          });
+          setTimeout(() => {
+            window.location.reload();
+          }, 2500);
+        }
+        console.log(this._state);
+        this._calcDisplayValue.style.fontSize = '2.2rem';
+        return `Can't divide by '0'. Resetting...`;
       }
       return acc / cur;
     });
@@ -74,11 +90,10 @@ class CalcDisplayView {
 
   addComputationRender(state) {
     this._state = state;
-
-    // this._calcDisplayValue.innerHTML = this._state.initial;
-    // console.log(this._state);
     this._numBtns.forEach(btn => {
       btn.addEventListener('click', () => {
+        // this._calcDisplayValue.innerHTML = this._state.initial;
+        // console.log(this._state);
         // RETRIEVE NUMBER VIA DISPLAY
         // if (!btn) return;
         // this._calcDisplayValue.innerHTML = '';

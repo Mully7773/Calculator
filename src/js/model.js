@@ -6,6 +6,7 @@ export const state = {
   operand: [],
   rightOperand: [],
   equals: [],
+  calcOn: true,
 
   //   grid: {
   //     gridCells: 20,
