@@ -333,10 +333,11 @@ input:hover {
   pointer-events: none;
 }
 
+/* Other */
 .cursor-wrapper {
   cursor: pointer;
 }
 
-/* .operator {
-  pointer-events: none;
-} */
+.active-operand {
+  color: #ff9900;
+}

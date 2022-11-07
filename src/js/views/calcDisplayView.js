@@ -144,26 +144,16 @@ class CalcDisplayView {
     });
 
     this._operatorBtns.forEach(btn => {
-      // this._calcDisplayValue.textValue = this._state.displayText;
       btn.addEventListener('click', e => {
-        // if (
-        //   this._state.lastClicked[0] === '+' ||
-        //   this._state.lastClicked[0] === '-' ||
-        //   this._state.lastClicked[0] === '*' ||
-        //   this._state.lastClicked[0] === '/' ||
-        //   this._state.lastClicked[0] === '='
-        // ) {
-        //   console.log('asdfadsf');
-        //   this._state.operand = [];
-        // }
+        this._operatorBtns.forEach(btn =>
+          btn.classList.remove('active-operand')
+        );
+        e.target.classList.toggle('active-operand');
+
         console.log(this._state);
         // if (!btn) return;
         const operatorBtnValue = btn.dataset.id.trim();
         console.log(operatorBtnValue);
-
-        // if (operatorBtnValue === '=') {
-        //   this._state.equals.push(operatorBtnValue);
-        // }
 
         this._state.lastClicked.push(operatorBtnValue);
         this._state.operand.push(operatorBtnValue);
