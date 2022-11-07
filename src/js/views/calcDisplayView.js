@@ -110,7 +110,7 @@ class CalcDisplayView {
         // !console.log(this._state);
 
         // RETRIEVE NUMBER VIA CLICKS
-        const calcBtnValue = btn.textContent;
+        const calcBtnValue = btn.textContent.trim();
         this._state.lastClicked.push(calcBtnValue);
         //  console.log(this._arr);
         // this._arr.textValue.push(calcBtnValue);
