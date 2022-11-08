@@ -4,6 +4,7 @@ class CalcDisplayView {
   _operatorBtns = document.querySelectorAll('.operator');
   _resetBtn = document.querySelector('.resetBtn');
   _delBtn = document.querySelector('.delBtn');
+  _decimalBtn = document.querySelector('.decimalBtn');
   _calcDisplay = document.querySelector('.calc-display');
   _calcDisplayValue = document.querySelector('.calc-numbers');
   _calcInputContainer = document.querySelector('.calc-input-container');
@@ -121,6 +122,11 @@ class CalcDisplayView {
         this._state.lastClicked.push(calcBtnValue);
         //  console.log(this._arr);
         // this._arr.textValue.push(calcBtnValue);
+        // if (calcBtnValue === decimal) {
+        //   if (!this._state.displayText.includes(decimal)) {
+
+        //   }
+        // }
         this._state.displayText.push(calcBtnValue);
 
         // const joined = this._arr.textValue.join('');
@@ -129,6 +135,10 @@ class CalcDisplayView {
         this._calcDisplayValue.textContent = joined;
         console.log(joined);
 
+        // this._state.displayText.find(el => {
+        //   if (el === '.') {
+        //   }
+        // });
         // if (btn.dataset.id === '0') {
         //   console.log('zero');
         //   this._state.rightOperand.push(0);
@@ -366,6 +376,20 @@ class CalcDisplayView {
       if (newStr === '') {
         this._calcDisplayValue.innerHTML = ``;
         this._calcDisplayValue.innerHTML = `&nbsp;`;
+      }
+    });
+
+    // Prevents multiple decimal points
+    this._decimalBtn.addEventListener('click', () => {
+      this._delBtn.classList.remove('disable-keys');
+      const decimal = this._decimalBtn.textContent.trim();
+      console.log(decimal);
+      console.log(this._state);
+      this._state.lastClicked.push(decimal);
+      if (!this._state.displayText.includes(decimal)) {
+        this._state.displayText.push(decimal);
+        const joined = this._state.displayText.join('');
+        this._calcDisplayValue.textContent = joined;
       }
     });
   }
