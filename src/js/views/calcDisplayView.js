@@ -94,6 +94,8 @@ class CalcDisplayView {
           // Like pattern for dividing by zero, this is not a perfect solution - keyboard events are still accessible...however, it prevents preemptive operand selection bugs
           btn.classList.remove('disable-keys');
         });
+        this._delBtn.classList.remove('disable-keys');
+
         // this._calcDisplayValue.innerHTML = this._state.initial;
         // console.log(this._state);
         // RETRIEVE NUMBER VIA DISPLAY
@@ -155,6 +157,9 @@ class CalcDisplayView {
           btn.classList.remove('active-operand')
         );
         e.target.classList.toggle('active-operand');
+
+        // Prevent user from deleting solutions - disable button after clicking any operand
+        this._delBtn.classList.add('disable-keys');
 
         console.log(this._state);
         // if (!btn) return;
