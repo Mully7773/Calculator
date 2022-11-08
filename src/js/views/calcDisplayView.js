@@ -5,6 +5,7 @@ class CalcDisplayView {
   _resetBtn = document.querySelector('.resetBtn');
   _delBtn = document.querySelector('.delBtn');
   _decimalBtn = document.querySelector('.decimalBtn');
+  _equalsBtn = document.querySelector('.equalsBtn');
   _calcDisplay = document.querySelector('.calc-display');
   _calcDisplayValue = document.querySelector('.calc-numbers');
   _calcInputContainer = document.querySelector('.calc-input-container');
@@ -92,8 +93,10 @@ class CalcDisplayView {
     this._numBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         this._operatorBtns.forEach(btn => {
-          // Like pattern for dividing by zero, this is not a perfect solution - keyboard events are still accessible...however, it prevents preemptive operand selection bugs
-          btn.classList.remove('disable-keys');
+          // Like pattern for dividing by zero, this is not a perfect solution - keyboard events are still accessible...however, it prevents preemptive operand selection bugs - keep '=' disabled until one of the other operands are selected
+          if (btn.dataset.id !== '=') {
+            btn.classList.remove('disable-keys');
+          }
         });
         this._delBtn.classList.remove('disable-keys');
 
@@ -170,7 +173,6 @@ class CalcDisplayView {
 
         // Prevent user from deleting solutions - disable button after clicking any operand
         this._delBtn.classList.add('disable-keys');
-
         console.log(this._state);
         // if (!btn) return;
         const operatorBtnValue = btn.dataset.id.trim();
@@ -183,6 +185,11 @@ class CalcDisplayView {
         const equals = this._state.operand.indexOf('=');
         if (equals > -1) {
           this._state.operand.splice(equals, 1);
+        }
+
+        // Prevent early access to equals btn (e.g. '2', '=')
+        if (this._state.operand.length >= 1) {
+          this._equalsBtn.classList.remove('disable-keys');
         }
 
         // Loop?
