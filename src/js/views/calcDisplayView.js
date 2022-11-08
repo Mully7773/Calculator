@@ -341,7 +341,9 @@ class CalcDisplayView {
       this._state.operand = [];
       this._state.rightOperand = [];
       this._state.solutions = [];
-      this._calcDisplayValue.innerHTML = `<h2 class="calc-numbers">&nbsp;</h2>`;
+      this._calcDisplayValue.innerHTML = ``;
+      this._calcDisplayValue.innerHTML = `&nbsp;`;
+      // this._calcDisplayValue.innerHTML = `<h2 class="calc-numbers">&nbsp;</h2>`;
       // Re-disable operand keys and remove active class from them
       this._operatorBtns.forEach(btn => {
         btn.classList.add('disable-keys');
@@ -356,14 +358,10 @@ class CalcDisplayView {
       const newStr = this._calcDisplayValue.textContent.trim().slice(0, -1);
       console.log(newStr);
       this._calcDisplayValue.textContent = newStr;
-      console.log(this._state);
-      // this._state.displayText.pop();
-      // this._state.equals.pop();
-      // this._state.lastClicked.pop();
-      // this._state.leftOperand.pop();
-      // this._state.operand.pop();
-      // this._state.rightOperand.pop();
-      // this._state.solutions.pop();
+      if (newStr === '') {
+        this._calcDisplayValue.innerHTML = ``;
+        this._calcDisplayValue.innerHTML = `&nbsp;`;
+      }
     });
   }
 }
