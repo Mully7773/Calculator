@@ -3,6 +3,7 @@ class CalcDisplayView {
   _numBtns = document.querySelectorAll('.numBtn');
   _operatorBtns = document.querySelectorAll('.operator');
   _resetBtn = document.querySelector('.resetBtn');
+  _delBtn = document.querySelector('.delBtn');
   _calcDisplay = document.querySelector('.calc-display');
   _calcDisplayValue = document.querySelector('.calc-numbers');
   _calcInputContainer = document.querySelector('.calc-input-container');
@@ -124,6 +125,7 @@ class CalcDisplayView {
         const joined = this._state.displayText.join('');
         // this._calcDisplayValue.textContent = this._arr.textValue.join('');
         this._calcDisplayValue.textContent = joined;
+        console.log(joined);
 
         // if (btn.dataset.id === '0') {
         //   console.log('zero');
@@ -340,10 +342,28 @@ class CalcDisplayView {
       this._state.rightOperand = [];
       this._state.solutions = [];
       this._calcDisplayValue.innerHTML = `<h2 class="calc-numbers">&nbsp;</h2>`;
-      // Re-disable operand keys
+      // Re-disable operand keys and remove active class from them
       this._operatorBtns.forEach(btn => {
         btn.classList.add('disable-keys');
+        btn.classList.remove('active-operand');
       });
+    });
+    this._delBtn.addEventListener('click', () => {
+      console.log('test');
+      console.log(this._calcDisplay.textContent);
+      this._state.displayText.pop();
+      this._state.lastClicked.pop();
+      const newStr = this._calcDisplayValue.textContent.trim().slice(0, -1);
+      console.log(newStr);
+      this._calcDisplayValue.textContent = newStr;
+      console.log(this._state);
+      // this._state.displayText.pop();
+      // this._state.equals.pop();
+      // this._state.lastClicked.pop();
+      // this._state.leftOperand.pop();
+      // this._state.operand.pop();
+      // this._state.rightOperand.pop();
+      // this._state.solutions.pop();
     });
   }
 }
