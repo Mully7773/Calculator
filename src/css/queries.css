@@ -1,7 +1,7 @@
 @media (max-width: 44em) {
-  /* html {
-    font-size: 58%;
-  } */
+  html {
+    font-size: 55%;
+  }
   /* body {
     display: grid;
     grid-template-columns: 1fr;
