@@ -1,0 +1,67 @@
+@media (max-width: 44em) {
+  /* body {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+  } */
+  /* .container { */
+  /* display: block; */
+  /* width: 100rem;
+    height: 100vh;
+    background-color: red;
+  } */
+  body {
+    width: 10rem;
+    /* height: 50rem; */
+  }
+  .container {
+    /* height: 100%; */
+    row-gap: 3.2rem;
+  }
+  .calc-input-container {
+    /* height: 100%; */
+  }
+
+  .app-title {
+    font-size: 3.6rem;
+  }
+
+  .theme-numbers {
+    font-size: 1.6rem;
+    gap: 1.8rem;
+  }
+
+  .theme-text {
+    font-size: 1.4rem;
+  }
+
+  .tri-toggle {
+    /* padding: 0rem; */
+    width: 7.2rem;
+    height: 2.6rem;
+  }
+
+  .btn {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .calc-display {
+    height: 10.5rem;
+  }
+
+  .calcBtn {
+    height: 7rem;
+    /* width: 7rem; */
+    font-size: 3.6rem;
+  }
+
+  .delBtn {
+    font-size: 2.6rem;
+  }
+
+  .resetBtn {
+    font-size: 2.6rem;
+  }
+}
