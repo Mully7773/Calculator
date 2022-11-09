@@ -1,6 +1,5 @@
 class ToggleThemeView {
   _toggleSwitches = document.querySelectorAll('.btn');
-  // _toggleSwitch = document.querySelectorAll('.btn');
   _body = document.querySelector('body');
   _triToggleEl = document.querySelector('.tri-toggle');
   _calcDisplay = document.querySelector('.calc-display');
@@ -17,9 +16,7 @@ class ToggleThemeView {
       el.addEventListener('click', () => {
         el.style.opacity = '1';
         if (el.dataset.id === 'theme1') {
-          this._body.classList.remove('body-theme-two');
-          this._body.classList.remove('body-theme-three');
-          this._body.classList.add('body-theme-one');
+          this._body.className = 'body-theme-one';
 
           this._triToggleEl.classList.remove('tri-toggle-theme-two');
           this._triToggleEl.classList.remove('tri-toggle-theme-three');
@@ -62,9 +59,7 @@ class ToggleThemeView {
           this._equalsBtn.classList.add('equalsBtn-theme-one');
         }
         if (el.dataset.id === 'theme2') {
-          this._body.classList.remove('body-theme-one');
-          this._body.classList.remove('body-theme-three');
-          this._body.classList.add('body-theme-two');
+          this._body.className = 'body-theme-two';
 
           this._triToggleEl.classList.remove('tri-toggle-theme-one');
           this._triToggleEl.classList.remove('tri-toggle-theme-three');
@@ -108,9 +103,7 @@ class ToggleThemeView {
         }
 
         if (el.dataset.id === 'theme3') {
-          this._body.classList.remove('body-theme-one');
-          this._body.classList.remove('body-theme-two');
-          this._body.classList.add('body-theme-three');
+          this._body.className = 'body-theme-three';
 
           this._triToggleEl.classList.remove('tri-toggle-theme-one');
           this._triToggleEl.classList.remove('tri-toggle-theme-two');
@@ -162,6 +155,7 @@ class ToggleThemeView {
       });
     });
   }
+  setTheme() {}
 }
 
 export default new ToggleThemeView();
