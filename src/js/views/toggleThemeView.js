@@ -155,7 +155,6 @@ class ToggleThemeView {
       });
     });
   }
-  setTheme() {}
 }
 
 export default new ToggleThemeView();
