@@ -7,8 +7,4 @@ export const state = {
   rightOperand: [],
   equals: [],
   calcOn: true,
-
-  //   grid: {
-  //     gridCells: 20,
-  //   },
 };
