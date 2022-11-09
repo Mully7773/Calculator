@@ -2,32 +2,14 @@
   html {
     font-size: 55%;
   }
-  /* body {
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    justify-items: center;
-  } */
-  /* .container { */
-  /* display: block; */
-  /* width: 100rem;
-    height: 100vh;
-    background-color: red;
-  } */
   body {
-    /* width: 20%; */
     justify-content: center;
     align-items: center;
     max-width: auto;
-    /* width: auto; */
-    /* height: 50rem; */
-    /* height: 100%; */
   }
   .container {
     max-height: 100%;
     max-width: 100%;
-
-    /* row-gap: 3.2rem; */
   }
   .calc-input-container {
     gap: 1.6rem;
@@ -47,7 +29,6 @@
   }
 
   .tri-toggle {
-    /* padding: 0rem; */
     width: 7.2rem;
     height: 2.6rem;
   }
@@ -67,7 +48,6 @@
 
   .calcBtn {
     height: 7rem;
-    /* width: 7rem; */
     font-size: 3.8rem;
   }
 

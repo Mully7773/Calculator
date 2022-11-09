@@ -35,32 +35,38 @@
       </ul>
       <header class="header">
         <h1 class="app-title">Calc</h1>
-        <div class="theme-input">
-          <p class="theme-text">Theme</p>
-          <div class="tri-toggle tri-toggle-theme-one">
-            <input
-              class="btn btn-theme-one"
-              type="radio"
-              name="toggle"
-              id="toggle-one"
-              data-id="theme1"
-            />
-            <input
-              class="btn btn-theme-one"
-              type="radio"
-              name="toggle"
-              id="toggle-two"
-              data-id="theme2"
-            />
-            <input
-              class="btn btn-theme-one"
-              type="radio"
-              name="toggle"
-              id="toggle-three"
-              data-id="theme3"
-            />
-          </div>
-        </div>
+        <form class="theme-input color-picker">
+          <fieldset>
+            <p class="theme-text">Theme</p>
+            <div class="tri-toggle tri-toggle-theme-one">
+              <label for="theme" class="hidden">Light theme</label>
+              <input
+                class="btn btn-theme-one"
+                type="radio"
+                name="theme"
+                id="toggle-one"
+                data-id="theme1"
+                checked
+              />
+              <label for="theme" class="hidden">Pastel theme</label>
+              <input
+                class="btn btn-theme-one"
+                type="radio"
+                name="theme"
+                id="toggle-two"
+                data-id="theme2"
+              />
+              <label for="theme" class="hidden">Dark theme</label>
+              <input
+                class="btn btn-theme-one"
+                type="radio"
+                name="theme"
+                id="toggle-three"
+                data-id="theme3"
+              />
+            </div>
+          </fieldset>
+        </form>
       </header>
       <section class="calc-display calc-display-theme-one">
         <h2 class="calc-numbers">&nbsp;</h2>

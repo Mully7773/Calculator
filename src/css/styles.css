@@ -38,7 +38,18 @@ body {
   text-transform: lowercase;
 }
 
-.theme-input {
+/* .theme-input {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+} */
+
+.color-picker > fieldset {
+  border: 0;
+  width: fit-content;
+}
+
+fieldset {
   display: flex;
   align-items: center;
   gap: 1.8rem;
@@ -73,6 +84,7 @@ input:hover {
 }
 
 .btn {
+  appearance: none;
   border-radius: 100%;
   transition: all 0.3s;
 }
@@ -341,4 +353,15 @@ input:hover {
 
 .active-operand {
   color: #ff9900;
+}
+
+/* Only visible for screen readers */
+.hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 0.1rem;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 0.1rem;
 }
